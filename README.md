@@ -79,7 +79,7 @@ The "Biblioteka" application is a library management system developed using **AS
      dotnet run
      ```
 5. **Zalogowanie do systemu / Logging into the System:**
-   - Po uruchomieniu aplikacji przejdź do `http://localhost:5000`.
+   - Po uruchomieniu aplikacji przejdź do `https://localhost:7026/Konto/Logowanie`.
    - Zaloguj się przy użyciu wbudowanego konta:
      - **Login:** `admin`
      - **Hasło:** `admin123`
