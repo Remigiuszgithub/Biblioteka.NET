@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Biblioteka.Models.Wypozyczenia>
+
+@{
+    ViewData["Title"] = "Lista wypożyczeń";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tytuł książki</th>
+            <th>Czytelnik</th>
+            <th>Data wypożyczenia</th>
+            <th>Data zwrotu</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Ksiazka.Tytul</td>
+                <td>@item.Czytelnik.Imie @item.Czytelnik.Nazwisko</td>
+                <td>@item.DataWypozyczenia.ToShortDateString()</td>
+                <td>@item.DataZwrotu.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

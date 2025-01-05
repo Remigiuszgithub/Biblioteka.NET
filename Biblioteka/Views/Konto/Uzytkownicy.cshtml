@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Uzytkownik>
+@{
+    ViewData["Title"] = "Użytkownicy";
+}
+<div class="container">
+    <h2>Lista użytkowników</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nazwa użytkownika</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Stanowisko</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Username</td>
+                    <td>@user.Imie</td>
+                    <td>@user.Nazwisko</td>
+                    <td>@user.Stanowisko</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-controller="Konto" asp-action="DodajUzytkownika" class="btn btn-primary">Dodaj użytkownika</a>
+</div>

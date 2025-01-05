@@ -1,0 +1,36 @@
+﻿@model Biblioteka.Models.Wypozyczenia
+
+@{
+    ViewData["Title"] = "Wypożycz książkę";
+}
+
+<h1>Wypożycz książkę</h1>
+
+<form asp-action="WypozyczPotwierdz" method="post">
+    <div class="form-group">
+        <label>Tytuł książki</label>
+        <input type="text" class="form-control" value="@ViewBag.KsiazkaTytul" disabled />
+        <input type="hidden" asp-for="KsiazkaId" />
+    </div>
+
+    <div class="form-group">
+        <label>Wybierz czytelnika</label>
+        <select asp-for="CzytelnikId" class="form-control" asp-items="ViewBag.Czytelnicy">
+            <option value="" hidden selected>Wybierz czytelnika</option> <!-- Ukryty element domyślny -->
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Data wypożyczenia</label>
+        <input type="hidden" asp-for="DataWypozyczenia" />
+        <input type="text" class="form-control" value="@Model.DataWypozyczenia.ToString("yyyy-MM-dd")" disabled />
+    </div>
+
+    <div class="form-group">
+        <label>Data zwrotu</label>
+        <input type="hidden" asp-for="DataZwrotu" />
+        <input type="text" class="form-control" value="@Model.DataZwrotu.ToString("yyyy-MM-dd")" disabled />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Potwierdź</button>
+</form>

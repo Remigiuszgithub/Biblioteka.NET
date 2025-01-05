@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Biblioteka.Models.Czytelnicy>
+
+@{
+    ViewData["Title"] = "Lista czytelników";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a href="@Url.Action("Stworz")" class="btn btn-primary">Dodaj nowego czytelnika</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Numer czytelnika</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Adres zamieszkania</th>
+            <th>Email</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var czytelnik in Model)
+        {
+            <tr>
+                <td>@czytelnik.Id</td>
+                <td>@czytelnik.Imie</td>
+                <td>@czytelnik.Nazwisko</td>
+                <td>@czytelnik.Adres</td>
+                <td>@czytelnik.Email</td>
+                <td>
+                    <a href="@Url.Action("GenerateIdCard", "Czytelnicy", new { id = czytelnik.Id })" class="btn btn-primary">Generuj Identyfikator</a>
+                    <a href="@Url.Action("Edytuj", new { id = czytelnik.Id })" class="btn btn-warning">Edytuj</a>
+                    <a href="@Url.Action("Usun", new { id = czytelnik.Id })" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

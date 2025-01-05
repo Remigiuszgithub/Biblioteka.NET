@@ -1,0 +1,19 @@
+﻿@model Biblioteka.Models.Kategoria
+
+@{
+    ViewData["Title"] = "Potwierdź usunięcie kategorii";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="alert alert-warning">
+    <h4 class="alert-heading">Czy na pewno chcesz usunąć tą kategorię?</h4>
+    <p>Kategoria: @Model.Nazwa</p>
+</div>
+
+<form asp-action="UsunConfirmed" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <button type="submit" class="btn btn-danger">Usuń</button>
+    <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+</form>
+

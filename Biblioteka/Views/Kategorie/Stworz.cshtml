@@ -1,0 +1,19 @@
+﻿@model Biblioteka.Models.Kategoria
+
+@{
+    ViewData["Title"] = "Dodaj nową kategorię";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Stworz" method="post">
+    <div class="form-group">
+        <label asp-for="Nazwa" class="control-label"></label>
+        <input asp-for="Nazwa" class="form-control" />
+        <span asp-validation-for="Nazwa" class="text-danger"></span>
+    </div>
+
+
+    <input type="submit" value="Dodaj" class="btn btn-primary" />
+    <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+</form>

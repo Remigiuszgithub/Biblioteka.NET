@@ -1,0 +1,21 @@
+﻿@model Biblioteka.Models.Czytelnicy
+
+@{
+    ViewData["Title"] = "Potwierdź usunięcie czytelnika";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="alert alert-warning">
+    <h4 class="alert-heading">Czy na pewno chcesz usunąć tego czytelnika?</h4>
+    <p>Imię: @Model.Imie</p>
+    <p>Nazwisko: @Model.Nazwisko</p>
+    <p>Adres: @Model.Adres</p>
+    <p>Email: @Model.Email</p>
+</div>
+
+<form asp-action="Usun" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <button type="submit" class="btn btn-danger">Usuń</button>
+    <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+</form>

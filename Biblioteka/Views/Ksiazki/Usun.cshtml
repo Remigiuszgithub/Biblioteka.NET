@@ -1,0 +1,20 @@
+﻿@model Biblioteka.Models.Ksiazki
+
+@{
+    ViewData["Title"] = "Potwierdź usunięcie książki";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="alert alert-warning">
+    <h4 class="alert-heading">Czy na pewno chcesz usunąć tę książkę?</h4>
+    <p>Tytuł: @Model.Tytul</p>
+    <p>Autor: @Model.Autor</p>
+    <p>Kategoria: @Model.Kategoria</p>
+</div>
+
+<form asp-action="Usun" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <button type="submit" class="btn btn-danger">Usuń</button>
+    <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+</form>
